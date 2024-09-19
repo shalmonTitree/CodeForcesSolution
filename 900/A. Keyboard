@@ -1,0 +1,50 @@
+https://codeforces.com/problemset/problem/474/A
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    vector<char>ch = {'q','w','e','r','t','y','u','i','o','p',
+'a','s','d','f','g','h','j','k','l',';',
+'z','x','c','v','b','n','m',',','.','/'};
+
+  char direction;
+  cin >> direction;
+  string str;
+  cin>>str;
+  vector<char>v;
+
+  if(direction == 'R')
+  {
+      for(int i = 0; i < str.size();i++)
+      {
+         for(int j = 0; j < ch.size(); j++)
+         {
+            if(str[i] == ch[j])
+            {
+               v.push_back(ch[j-1]);
+            }
+         }
+      }
+  }
+  else if(direction == 'L')
+  {
+
+      for(int i = 0; i < str.size();i++)
+      {
+         for(int j = 0; j < ch.size(); j++)
+         {
+            if(str[i] == ch[j])
+            {
+               v.push_back(ch[j+1]);
+            }
+         }
+      }
+  }
+  for(int i = 0; i < v.size();i++)
+  {
+    cout<<v[i]<<"";
+  }
+}
