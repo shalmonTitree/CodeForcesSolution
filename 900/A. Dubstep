@@ -1,5 +1,4 @@
 https://codeforces.com/problemset/problem/208/A
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -12,7 +11,7 @@ int main() {
    for(int i = 0; i < str.size(); i += 3)
    {
        string p;
-      while(str.substr(i,3) != "WUB")
+      while(i < str.size() && str.substr(i,3) != "WUB")
       {
         p+=str[i];
         i++;
