@@ -1,0 +1,25 @@
+https://codeforces.com/problemset/problem/460/A
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, m; // n is the number of socks Vasya has, m is the number of socks to get a free one
+    cin >> n >> m;
+    
+    int days = 0;
+    
+    while (n > 0) {
+        days++;    // Wear a new pair of socks
+        n--;       // One pair of socks is used
+        
+        // Every m-th day Vasya gets a free sock
+        if (days % m == 0) {
+            n++;   // Vasya gets a new pair of socks for free
+        }
+    }
+    
+    cout << days << endl;
+    
+    return 0;
+}
