@@ -1,0 +1,38 @@
+https://codeforces.com/problemset/problem/1850/D
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+   int t;
+   cin>>t;
+   while(t--)
+   {
+        int n,k;
+        cin>>n>>k;
+        int count = 1;
+        int ans = 1;
+        vector<int>v(n);
+        for(int i = 0; i < n; i++)
+        {
+            cin>>v[i];
+        }
+        sort(v.begin(),v.end());
+        for(int i = 1; i < n; i++)
+        {
+            if(v[i] - v[i-1] > k)
+            {
+                count = 1;
+            }
+            else
+            {
+                count++;
+            }
+            ans = max(count,ans);
+        }
+        
+        cout<<n - ans<<endl;
+   }
+}
