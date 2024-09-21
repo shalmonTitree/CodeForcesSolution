@@ -1,0 +1,41 @@
+https://codeforces.com/problemset/problem/320/A
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+bool check(string n)
+{
+    if(n[0] == '4')
+   {
+    return false;
+   }
+
+   for(int i = 0; i < n.size();i++)
+   {
+        if(n[i] != '4' && n[i] != '1')
+        {
+            return false;
+        }
+   }
+
+    if(n.find("444") != n.npos)
+   {
+    return false;
+   }
+   return true;
+}
+int main() {
+    
+   string n;
+   cin>>n;
+  
+   if(check(n))
+   {
+    cout<<"YES"<<endl;
+
+   }else{
+    cout<<"NO"<<endl;
+   }
+}
