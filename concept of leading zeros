@@ -1,0 +1,45 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  string str;
+  cin>>str;
+  int s = 0;
+  int e = str.size() - 1;
+ bool flag = true;
+  while(s<=e)
+  {
+    if(str[s] != str[e])
+    {
+      flag =  false;
+      break;
+    }
+    s++;
+    e--;
+  }
+  reverse(str.begin(),str.end());
+
+ int leadingZeros = 0;
+    for (char ch : str) {
+        if (ch == '0') {
+            leadingZeros++;
+        } else {
+            break;
+        }
+    }
+        string newStr = str.substr(leadingZeros);
+
+  cout<<newStr<<""<<endl;
+  if(flag)
+  {
+    cout<<"YES"<<endl;
+  }
+  else
+  {
+    cout<<"NO"<<endl;
+  }
+
+  
+    
+}
