@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+typedef long long ll;
+using namespace std;
+
+int main() {
+    ll n, m, q;
+    cin >> n >> m >> q;
+    
+    vector<vector<ll>> v(n + 1, vector<ll>(m + 1, 0));  // Input matrix (1-indexed)
+    vector<vector<ll>> prefixsum(n + 1, vector<ll>(m + 1, 0));  // Prefix sum matrix (1-indexed)
+
+    // Input the matrix
+    for (ll i = 1; i <= n; i++) {
+        for (ll j = 1; j <= m; j++) {
+            cin >> v[i][j];
+        }
+    }
+
+    // Build the prefix sum matrix
+    for (ll i = 1; i <= n; i++) {
+        for (ll j = 1; j <= m; j++) {
+            prefixsum[i][j] = v[i][j] + prefixsum[i-1][j] + prefixsum[i][j-1] - prefixsum[i-1][j-1];
+        }
+    }
+
+    // Process each query
+    while (q--) {
+        ll a, b, c, d;
+        cin >> a >> b >> c >> d;
+        
+        // Query the sum of the submatrix (a, b) to (c, d)
+        ll sum = prefixsum[c][d] - prefixsum[a-1][d] - prefixsum[c][b-1] + prefixsum[a-1][b-1];
+        cout << sum << endl;
+    }
+
+    return 0;
+}
