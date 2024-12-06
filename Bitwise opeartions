@@ -1,0 +1,39 @@
+https://codeforces.com/group/c3FDl9EUi9/contest/267312/problem/B
+
+#include <iostream>
+#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+
+int main()
+{
+    int n,q;
+    cin>>q>>n;
+    while(q--)
+    {
+        int a,b;
+        cin>>a>>b;
+
+        if(a == 1)
+        {
+            cout<<((n >> b) & 1)<<endl;
+            continue;
+        }
+        else if(a == 2)
+        {
+            
+            n = n | (1 << b);
+
+        }
+        else if(a == 3)
+        {
+            n = n & ~(1 << b);
+        }
+        else if(a == 4)
+        {
+            n = n ^ (1 << b);
+        }
+          cout<<n<<endl;
+
+    }
+}
